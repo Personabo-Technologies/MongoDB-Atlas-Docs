@@ -1,0 +1,226 @@
+Docs Home → Launch & Manage MongoDB → MongoDB Atlas
+
+# atlas logs download
+
+Share Feedback
+
+On this page
+
+  * Syntax
+  * Arguments
+  * Options
+  * Inherited Options
+  * Examples
+
+Download a compressed file that contains the MongoDB logs for the specified
+host.
+
+This command downloads a file with a .gz extension.
+
+To find the hostnames for an Atlas project, use the process list command.
+
+To use this command, you must authenticate with a user account or an API key
+that has the Project Data Access Read/Write role.
+
+## Syntax
+
+    
+    
+    atlas logs download <hostname> <mongodb.gz|mongos.gz|mongosqld.gz|mongodb-audit-log.gz|mongos-audit-log.gz> [options]  
+      
+  
+## Arguments
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+hostname
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Label that identifies the host that stores the log files that you want to
+download.  
+  
+mongodb.gz|mongos.gz|mongosqld.gz|mongodb-audit-log.gz|mongos-audit-log.gz
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Log file that you want to return.  
+  
+## Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+\--end
+
+|
+
+string
+
+|
+
+false
+
+|
+
+UNIX Epoch-formatted ending date and time for the range of log messages to
+retrieve. This value defaults to the current timestamp.  
+  
+\--force
+
+|
+
+|
+
+false
+
+|
+
+Overwrites the destination file.  
+  
+-h, --help
+
+|
+
+|
+
+false
+
+|
+
+help for download  
+  
+\--out
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Optional output file name. Uses the log name if the output file's name is not
+specified.  
+  
+\--projectId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Hexadecimal string that identifies the project to use. This option overrides
+the settings in the configuration file or environment variable.  
+  
+\--start
+
+|
+
+string
+
+|
+
+false
+
+|
+
+UNIX Epoch-formatted starting date and time for the range of log messages to
+retrieve. This value defaults to 24 hours prior to the current timestamp.  
+  
+## Inherited Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+-P, --profile
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Human-readable label that identifies the profile to use from your
+configuration file. To learn about profiles for the Atlas CLI, see
+https://dochub.mongodb.org/core/atlas-cli-save-connection-settings. To learn
+about profiles for MongoCLI, see https://dochub.mongodb.org/core/atlas-cli-
+configuration-file.  
+  
+## Examples
+
+    
+    
+    # Download the mongodb log file from the host atlas-123abc-shard-00-00.111xx.mongodb.net for the project with the ID 5e2211c17a3e5a48f5497de3:  
+      
+    atlas logs download  atlas-123abc-shard-00-00.111xx.mongodb.net mongodb.gz --projectId 5e2211c17a3e5a48f5497de3  
+  
+What is MongoDB Atlas? →
+

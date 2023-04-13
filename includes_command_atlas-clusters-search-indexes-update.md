@@ -1,0 +1,205 @@
+Docs Home → Launch & Manage MongoDB → MongoDB Atlas
+
+# atlas clusters search indexes update
+
+Share Feedback
+
+On this page
+
+  * Syntax
+  * Arguments
+  * Options
+  * Inherited Options
+  * Output
+  * Examples
+
+Modify a search index for a cluster.
+
+To use this command, you must authenticate with a user account or an API key
+that has the Project Data Access Admin role.
+
+## Syntax
+
+    
+    
+    atlas clusters search indexes update <indexId> [options]  
+      
+  
+## Arguments
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+indexId
+
+|
+
+string
+
+|
+
+true
+
+|
+
+ID of the index.  
+  
+## Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+\--clusterName
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Name of the cluster.  
+  
+-f, --file
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Name of the JSON index configuration file to use. To learn about the Atlas
+Search index syntax and options that you can define in your configuration
+file, see https://www.mongodb.com/docs/atlas/atlas-search/index-definitions/.  
+  
+-h, --help
+
+|
+
+|
+
+false
+
+|
+
+help for update  
+  
+-o, --output
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Output format. Valid values are json, json-path, go-template, or go-template-
+file.  
+  
+\--projectId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Hexadecimal string that identifies the project to use. This option overrides
+the settings in the configuration file or environment variable.  
+  
+## Inherited Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+-P, --profile
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Human-readable label that identifies the profile to use from your
+configuration file. To learn about profiles for the Atlas CLI, see
+https://dochub.mongodb.org/core/atlas-cli-save-connection-settings. To learn
+about profiles for MongoCLI, see https://dochub.mongodb.org/core/atlas-cli-
+configuration-file.  
+  
+## Output
+
+If the command succeeds, the CLI returns output similar to the following
+sample. Values in brackets represent your values.
+
+    
+    
+    Index <Name> updated.  
+      
+  
+## Examples
+
+    
+    
+    # Modify the search index with the ID 5f2099cd683fc55fbb30bef6 for the cluster named myCluster:  
+      
+    atlas clusters search indexes update 5f2099cd683fc55fbb30bef6 --clusterName myCluster --output json  
+  
+What is MongoDB Atlas? →
+

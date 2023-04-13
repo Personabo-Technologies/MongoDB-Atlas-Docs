@@ -1,0 +1,242 @@
+Docs Home → Launch & Manage MongoDB → MongoDB Atlas
+
+# atlas clusters onlineArchives create
+
+Share Feedback
+
+On this page
+
+  * Syntax
+  * Options
+  * Inherited Options
+  * Examples
+
+Create an online archive for a collection in the specified cluster.
+
+You can create an online archive for an M10 or larger cluster.
+
+To learn more about online archives, see
+https://www.mongodb.com/docs/atlas/online-archive/manage-online-archive/.
+
+To use this command, you must authenticate with a user account or an API key
+that has the Project Data Access Admin role.
+
+## Syntax
+
+    
+    
+    atlas clusters onlineArchives create [options]  
+      
+  
+## Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+\--archiveAfter
+
+|
+
+float
+
+|
+
+true
+
+|
+
+Number of days after which to archive cluster data.  
+  
+\--clusterName
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Name of the cluster.  
+  
+\--collection
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Name of the collection.  
+  
+\--dateField
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Name of an already indexed date field from the documents.  
+  
+\--dateFormat
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Date format for the date field. Valid values are ISODATE, EPOCH_SECONDS,
+EPOCH_MILLIS, or EPOCH_NANOSECONDS. This value defaults to "ISODATE".  
+  
+\--db
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Name of the database.  
+  
+-h, --help
+
+|
+
+|
+
+false
+
+|
+
+help for create  
+  
+-o, --output
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Output format. Valid values are json, json-path, go-template, or go-template-
+file.  
+  
+\--partition
+
+|
+
+strings
+
+|
+
+false
+
+|
+
+Fields to use to partition data. You can specify up to two frequently queried
+fields, separated by a comma, in the following format: <fieldname>:<datatype>.
+The data type must match the data type of the field in the document.  
+  
+\--projectId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Hexadecimal string that identifies the project to use. This option overrides
+the settings in the configuration file or environment variable.  
+  
+## Inherited Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+-P, --profile
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Human-readable label that identifies the profile to use from your
+configuration file. To learn about profiles for the Atlas CLI, see
+https://dochub.mongodb.org/core/atlas-cli-save-connection-settings. To learn
+about profiles for MongoCLI, see https://dochub.mongodb.org/core/atlas-cli-
+configuration-file.  
+  
+## Examples
+
+    
+    
+    # Create an online archive for the sample_mflix.movies collection in a cluster named myTestCluster when the current date is greater than the value of released date plus 2 days:  
+      
+    atlas clusters onlineArchive create --clusterName myTestCluster --db sample_mflix --collection movies --dateField released --archiveAfter 2 --output json  
+      
+    
+    # Create an online archive for the sample_mflix.movies collection in a cluster named myTestCluster using a profile named egAtlasProfile when the current date is greater than the value of the released date plus 2 days. Data is partitioned based on the title field, year field, and released field from the documents in the collection:  
+      
+    atlas clusters onlineArchive create --clusterName myTestCluster --db sample_mflix --collection movies --dateField released --archiveAfter 2 --partition title:string,year:int --output json -P egAtlasProfile  
+  
+What is MongoDB Atlas? →
+

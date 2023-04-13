@@ -1,0 +1,205 @@
+Docs Home → Launch & Manage MongoDB → MongoDB Atlas
+
+# atlas clusters search indexes create
+
+Share Feedback
+
+On this page
+
+  * Syntax
+  * Arguments
+  * Options
+  * Inherited Options
+  * Output
+  * Examples
+
+Create a search index for a cluster.
+
+To use this command, you must authenticate with a user account or an API key
+that has the Project Data Access Admin role.
+
+## Syntax
+
+    
+    
+    atlas clusters search indexes create [indexName] [options]  
+      
+  
+## Arguments
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+indexName
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Name of the index.  
+  
+## Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+\--clusterName
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Name of the cluster.  
+  
+-f, --file
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Name of the JSON index configuration file to use. To learn about the Atlas
+Search index syntax and options that you can define in your configuration
+file, see https://www.mongodb.com/docs/atlas/atlas-search/index-definitions/.  
+  
+-h, --help
+
+|
+
+|
+
+false
+
+|
+
+help for create  
+  
+-o, --output
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Output format. Valid values are json, json-path, go-template, or go-template-
+file.  
+  
+\--projectId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Hexadecimal string that identifies the project to use. This option overrides
+the settings in the configuration file or environment variable.  
+  
+## Inherited Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+-P, --profile
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Human-readable label that identifies the profile to use from your
+configuration file. To learn about profiles for the Atlas CLI, see
+https://dochub.mongodb.org/core/atlas-cli-save-connection-settings. To learn
+about profiles for MongoCLI, see https://dochub.mongodb.org/core/atlas-cli-
+configuration-file.  
+  
+## Output
+
+If the command succeeds, the CLI returns output similar to the following
+sample. Values in brackets represent your values.
+
+    
+    
+    Index <Name> created.  
+      
+  
+## Examples
+
+    
+    
+    # Create a search index for the cluster named myCluster using a JSON index configuration file named search-config.json:  
+      
+    atlas clusters search indexes create --clusterName myCluster --file search-config.json --output json  
+  
+What is MongoDB Atlas? →
+

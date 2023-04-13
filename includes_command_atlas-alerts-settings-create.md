@@ -1,0 +1,546 @@
+Docs Home → Launch & Manage MongoDB → MongoDB Atlas
+
+# atlas alerts settings create
+
+Share Feedback
+
+On this page
+
+  * Syntax
+  * Options
+  * Inherited Options
+  * Output
+  * Examples
+
+Create an alert configuration for your project.
+
+To use this command, you must authenticate with a user account or an API key
+that has the Project Owner role.
+
+## Syntax
+
+    
+    
+    atlas alerts settings create [options]  
+      
+  
+## Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+\--apiKey
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Datadog API Key, Opsgenie API Key, or VictorOps API key. Required if the
+notificationType is DATADOG, OPS_GENIE, or VICTOR_OPS, respectively.  
+  
+\--enabled
+
+|
+
+|
+
+false
+
+|
+
+Enables the alert configuration.  
+  
+\--event
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Type of event that triggered the alert. Valid values are
+AWS_ENCRYPTION_KEY_NEEDS_ROTATION, AZURE_ENCRYPTION_KEY_NEEDS_ROTATION,
+CLUSTER_MONGOS_IS_MISSING, CPS_RESTORE_FAILED, CPS_RESTORE_SUCCESSFUL,
+CPS_SNAPSHOT_BEHIND, CPS_SNAPSHOT_DOWNLOAD_REQUEST_FAILED,
+CPS_SNAPSHOT_FALLBACK_FAILED, CPS_SNAPSHOT_FALLBACK_SUCCESSFUL,
+CPS_SNAPSHOT_SUCCESSFUL, CREDIT_CARD_ABOUT_TO_EXPIRE,
+DAILY_BILL_OVER_THRESHOLD, GCP_ENCRYPTION_KEY_NEEDS_ROTATION, HOST_DOWN,
+JOINED_GROUP, NDS_X509_USER_AUTHENTICATION_CUSTOMER_CA_EXPIRATION_CHECK,
+NDS_X509_USER_AUTHENTICATION_MANAGED_USER_CERTS_EXPIRATION_CHECK, NO_PRIMARY,
+OUTSIDE_METRIC_THRESHOLD, OUTSIDE_SERVERLESS_METRIC_THRESHOLD,
+OUTSIDE_REALM_METRIC_THRESHOLD, PENDING_INVOICE_OVER_THRESHOLD,
+PRIMARY_ELECTED, REMOVED_FROM_GROUP, REPLICATION_OPLOG_WINDOW_RUNNING_OUT,
+TOO_MANY_ELECTIONS, USER_ROLES_CHANGED_AUDIT, USERS_WITHOUT_MULTIFACTOR_AUTH.  
+  
+-h, --help
+
+|
+
+|
+
+false
+
+|
+
+help for create  
+  
+\--matcherFieldName
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Name of the field in the target object to match on. To learn the valid values,
+run atlas alerts settings fields type.  
+  
+\--matcherOperator
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Comparison operator to apply when checking the current metric against
+matcherValue. Valid values are CONTAINS, ENDS_WITH, EQUALS, NOT_CONTAINS,
+NOT_EQUALS, REGEX, STARTS_WITH.  
+  
+\--matcherValue
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Value to test with the specified operator. If matcherFieldName is set to
+TYPE_NAME, you can match on the following values: CONFIG, MONGOS, PRIMARY,
+SECONDARY, STANDALONE.  
+  
+\--metricMode
+
+|
+
+string
+
+|
+
+false
+
+|
+
+If specified, Atlas computes the current metric value as an average. Valid
+value is AVERAGE.  
+  
+\--metricName
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Name of the metric against which this command checks the configured alert. To
+learn the valid values, see
+https://www.mongodb.com/docs/atlas/reference/alert-host-metrics/. This is only
+applicable if the event is set to OUTSIDE_METRIC_THRESHOLD.  
+  
+\--metricOperator
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Comparison operator to apply when checking the current metric value. Valid
+values are LESS_THAN and GREATER_THAN.  
+  
+\--metricThreshold
+
+|
+
+float
+
+|
+
+false
+
+|
+
+Threshold value outside of which an alert will be triggered.  
+  
+\--metricUnits
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Units for the threshold value. Valid values are BITS, BYTES, DAYS, GIGABITS,
+GIGABYTES, HOURS, KILOBITS, KILOBYTES, MEGABITS, MEGABYTES, MILLISECONDS,
+MINUTES, PETABYTES, RAW, SECONDS, TERABYTES.  
+  
+\--notificationChannelName
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Slack channel name. Required for the SLACK notifications type.  
+  
+\--notificationDelayMin
+
+|
+
+int
+
+|
+
+false
+
+|
+
+Number of minutes to wait after an alert condition is detected before sending
+out the first notification.  
+  
+\--notificationEmailAddress
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Email address to which alert notifications are sent.  
+  
+\--notificationEmailEnabled
+
+|
+
+|
+
+false
+
+|
+
+Flag that enables email notifications. Configurable for GROUP and USER
+notification types.  
+  
+\--notificationFlowName
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Flowdock Flow name in lower-case letters for sending alert notifications.  
+  
+\--notificationIntervalMin
+
+|
+
+int
+
+|
+
+false
+
+|
+
+Number of minutes to wait between successive notifications for unacknowledged
+alerts that are not resolved.  
+  
+\--notificationMobileNumber
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Mobile number to which alert notifications are sent.  
+  
+\--notificationOrgName
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Flowdock organization's name in lower-case letters.  
+  
+\--notificationRegion
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Region that indicates which API URL to use.  
+  
+\--notificationServiceKey
+
+|
+
+string
+
+|
+
+false
+
+|
+
+PagerDuty service key.  
+  
+\--notificationSmsEnabled
+
+|
+
+|
+
+false
+
+|
+
+Flag that enables text message notifications.  
+  
+\--notificationTeamId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Unique identifier of a team.  
+  
+\--notificationToken
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Slack API token, Bot token, or Flowdock personal API token.  
+  
+\--notificationType
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Type of alert notification. Valid values are DATADOG, EMAIL, FLOWDOCK, GROUP
+(Project), ORG, OPS_GENIE, PAGER_DUTY, SLACK, SMS, USER, or VICTOR_OPS.  
+  
+\--notificationUsername
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Name of the Atlas user to which to send notifications.  
+  
+\--notificationVictorOpsRoutingKey
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Routing key associated with your Splunk On-Call account.  
+  
+-o, --output
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Output format. Valid values are json, json-path, go-template, or go-template-
+file.  
+  
+\--projectId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Hexadecimal string that identifies the project to use. This option overrides
+the settings in the configuration file or environment variable.  
+  
+## Inherited Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+-P, --profile
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Human-readable label that identifies the profile to use from your
+configuration file. To learn about profiles for the Atlas CLI, see
+https://dochub.mongodb.org/core/atlas-cli-save-connection-settings. To learn
+about profiles for MongoCLI, see https://dochub.mongodb.org/core/atlas-cli-
+configuration-file.  
+  
+## Output
+
+If the command succeeds, the CLI returns output similar to the following
+sample. Values in brackets represent your values.
+
+    
+    
+    Alert configuration <ID> created.  
+      
+  
+## Examples
+
+    
+    
+    # Create an alert configuration that notifies a user when they join a group for the project with the ID 5df90590f10fab5e33de2305:  
+      
+    atlas alerts settings create --event JOINED_GROUP --enabled \  
+    --notificationType USER --notificationEmailEnabled \  
+    --notificationUsername john@example.com \  
+    --output json --projectId 5df90590f10fab5e33de2305  
+  
+What is MongoDB Atlas? →
+

@@ -1,0 +1,240 @@
+Docs Home → Launch & Manage MongoDB → MongoDB Atlas
+
+# atlas performanceAdvisor suggestedIndexes list
+
+Share Feedback
+
+On this page
+
+  * Syntax
+  * Options
+  * Inherited Options
+  * Examples
+
+Return the suggested indexes for collections experiencing slow queries.
+
+The Performance Advisor monitors queries that MongoDB considers slow and
+suggests new indexes to improve query performance.
+
+To use this command, you must authenticate with a user account or an API key
+that has the Project Read Only role.
+
+## Syntax
+
+    
+    
+    atlas performanceAdvisor suggestedIndexes list [options]  
+      
+  
+## Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+\--duration
+
+|
+
+int
+
+|
+
+false
+
+|
+
+Length of time in milliseconds for which you want to return results. If you
+set the since option, duration starts at the since date and time. If you don't
+set the since option, this command returns data from the duration before the
+current time.  
+  
+-h, --help
+
+|
+
+|
+
+false
+
+|
+
+help for list  
+  
+\--hostId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Unique identifier for the host of a MongoDB process.  
+  
+\--nExamples
+
+|
+
+int
+
+|
+
+false
+
+|
+
+Maximum number of example queries to provide that will be improved by a
+suggested index.  
+  
+\--nIndexes
+
+|
+
+int
+
+|
+
+false
+
+|
+
+Maximum number of indexes to suggest.  
+  
+\--namespaces
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Namespaces from which to retrieve suggested indexes.  
+  
+-o, --output
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Output format. Valid values are json, json-path, go-template, or go-template-
+file.  
+  
+\--processName
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Unique identifier for the host of a MongoDB process in the following format:
+{hostname}:{port}.  
+  
+\--projectId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Hexadecimal string that identifies the project to use. This option overrides
+the settings in the configuration file or environment variable.  
+  
+\--since
+
+|
+
+int
+
+|
+
+false
+
+|
+
+Date and time from which the query retrieves the suggested indexes. Specify as
+the number of seconds that have elapsed since the UNIX epoch. If you don't set
+the duration option, this command returns data from the since value to the
+current time.  
+  
+## Inherited Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+-P, --profile
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Human-readable label that identifies the profile to use from your
+configuration file. To learn about profiles for the Atlas CLI, see
+https://dochub.mongodb.org/core/atlas-cli-save-connection-settings. To learn
+about profiles for MongoCLI, see https://dochub.mongodb.org/core/atlas-cli-
+configuration-file.  
+  
+## Examples
+
+    
+    
+    # Return a JSON-formatted list of suggested indexes for the atlas-111ggi-shard-00-00.111xx.mongodb.net:27017 host in the project with the ID 5e2211c17a3e5a48f5497de3:  
+      
+    atlas performanceAdvisor suggestedIndexes list --processName atlas-111ggi-shard-00-00.111xx.mongodb.net:27017 --projectId 5e2211c17a3e5a48f5497de3 --output json  
+  
+What is MongoDB Atlas? →
+

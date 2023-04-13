@@ -1,0 +1,180 @@
+Docs Home → Launch & Manage MongoDB → MongoDB Atlas
+
+# atlas integrations create DATADOG
+
+Share Feedback
+
+On this page
+
+  * Syntax
+  * Options
+  * Inherited Options
+  * Output
+  * Examples
+
+Create or update a Datadog integration for your project.
+
+The requesting API key must have the Organization Owner or Project Owner role
+to configure an integration with Datadog.
+
+After you integrate with Datadog, you can send metric data about your project
+to your Datadog dashboard. To learn more about the metrics available to
+Datadog, see https://www.mongodb.com/docs/atlas/tutorial/datadog-integration/.
+
+Datadog integration is available only for M10+ clusters.
+
+To use this command, you must authenticate with a user account or an API key
+that has the Project Owner role.
+
+## Syntax
+
+    
+    
+    atlas integrations create DATADOG [options]  
+      
+  
+## Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+\--apiKey
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Datadog API key that allows Atlas to access your Datadog account.  
+  
+-h, --help
+
+|
+
+|
+
+false
+
+|
+
+help for DATADOG  
+  
+-o, --output
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Output format. Valid values are json, json-path, go-template, or go-template-
+file.  
+  
+\--projectId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Hexadecimal string that identifies the project to use. This option overrides
+the settings in the configuration file or environment variable.  
+  
+\--region
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Code that indicates which regional URL MongoDB uses to access the Datadog API.
+Valid values are US, EU, US3, and US5. This value defaults to "US".  
+  
+## Inherited Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+-P, --profile
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Human-readable label that identifies the profile to use from your
+configuration file. To learn about profiles for the Atlas CLI, see
+https://dochub.mongodb.org/core/atlas-cli-save-connection-settings. To learn
+about profiles for MongoCLI, see https://dochub.mongodb.org/core/atlas-cli-
+configuration-file.  
+  
+## Output
+
+If the command succeeds, the CLI returns output similar to the following
+sample. Values in brackets represent your values.
+
+    
+    
+    Datadog integration configured.  
+      
+  
+## Examples
+
+    
+    
+    # Integrate Datadog with Atlas for the project with the ID 5e2211c17a3e5a48f5497de3:  
+      
+    atlas integrations create DATADOG --apiKey a1a23bcdef45ghijk6789 --projectId 5e2211c17a3e5a48f5497de3 --output json  
+  
+What is MongoDB Atlas? →
+

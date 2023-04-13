@@ -1,0 +1,202 @@
+Docs Home → Launch & Manage MongoDB → MongoDB Atlas
+
+# atlas backups exports jobs create
+
+Share Feedback
+
+On this page
+
+  * Syntax
+  * Options
+  * Inherited Options
+  * Output
+  * Examples
+
+Export one backup snapshot for an M10 or higher Atlas cluster to an existing
+AWS S3 bucket.
+
+To use this command, you must authenticate with a user account or an API key
+that has the Project Owner role.
+
+## Syntax
+
+    
+    
+    atlas backups exports jobs create [options]  
+      
+  
+## Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+\--bucketId
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Unique identifier that Atlas assigns to the bucket.  
+  
+\--clusterName
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Name of the cluster.  
+  
+\--customData
+
+|
+
+stringToString
+
+|
+
+false
+
+|
+
+Custom data to include in the metadata file named .complete that Atlas uploads
+to the bucket when the export job finishes. Custom data can be specified as
+key and value pairs. This value defaults to [].  
+  
+-h, --help
+
+|
+
+|
+
+false
+
+|
+
+help for create  
+  
+-o, --output
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Output format. Valid values are json, json-path, go-template, or go-template-
+file.  
+  
+\--projectId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Hexadecimal string that identifies the project to use. This option overrides
+the settings in the configuration file or environment variable.  
+  
+\--snapshotId
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Unique identifier of the snapshot to restore. You must specify a snapshotId
+for automated restores.  
+  
+## Inherited Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+-P, --profile
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Human-readable label that identifies the profile to use from your
+configuration file. To learn about profiles for the Atlas CLI, see
+https://dochub.mongodb.org/core/atlas-cli-save-connection-settings. To learn
+about profiles for MongoCLI, see https://dochub.mongodb.org/core/atlas-cli-
+configuration-file.  
+  
+## Output
+
+If the command succeeds, the CLI returns output similar to the following
+sample. Values in brackets represent your values.
+
+    
+    
+    Export job created in a bucket with ID '<ExportBucketID>'.  
+      
+  
+## Examples
+
+    
+    
+    # The following command exports one backup snapshot of the ExampleCluster cluster to an existing AWS S3 bucket:  
+      
+    atlas backup export jobs create --clusterName ExampleCluster --bucketId 62c569f85b7a381c093cc539 --snapshotId 62c808ceeb4e021d850dfe1b --customData name=test,info=test  
+  
+What is MongoDB Atlas? →
+

@@ -1,0 +1,226 @@
+Docs Home → Launch & Manage MongoDB → MongoDB Atlas
+
+# atlas projects create
+
+Share Feedback
+
+On this page
+
+  * Syntax
+  * Arguments
+  * Options
+  * Inherited Options
+  * Output
+  * Examples
+
+Create a project in your organization.
+
+Projects group clusters into logical collections that support an application
+environment, workload, or both. Each project can have its own users, teams,
+security, and alert settings.
+
+To use this command, you must authenticate with a user account or an API key
+that has the Project Data Access Read/Write role.
+
+## Syntax
+
+    
+    
+    atlas projects create <projectName> [options]  
+      
+  
+## Arguments
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+projectName
+
+|
+
+string
+
+|
+
+true
+
+|
+
+Label that identifies the project.  
+  
+## Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+\--govCloudRegionsOnly
+
+|
+
+|
+
+false
+
+|
+
+Flag that designates that the project uses only the AWS GovCloud region. Use
+this option only for Atlas for Government projects. If unspecified, the
+project uses only the AWS Standard region for AWS deployments. You can't
+deploy clusters across AWS GovCloud and AWS Standard regions in the same
+project.  
+  
+-h, --help
+
+|
+
+|
+
+false
+
+|
+
+help for create  
+  
+\--orgId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Organization ID to use. Overrides the settings in the configuration file or
+environment variable.  
+  
+-o, --output
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Output format. Valid values are json, json-path, go-template, or go-template-
+file.  
+  
+\--ownerId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Unique 24-digit string that identifies the Atlas user to be granted the
+Project Owner role on the specified project. If unspecified, this value
+defaults to the user ID of the oldest Organization Owner.  
+  
+\--withoutDefaultAlertSettings
+
+|
+
+|
+
+false
+
+|
+
+Flag that creates the new project without the default alert settings enabled.
+This flag defaults to false. This is useful if you create projects
+programmatically and want to create your own alerts instead of using the
+default alert settings.  
+  
+## Inherited Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+-P, --profile
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Human-readable label that identifies the profile to use from your
+configuration file. To learn about profiles for the Atlas CLI, see
+https://dochub.mongodb.org/core/atlas-cli-save-connection-settings. To learn
+about profiles for MongoCLI, see https://dochub.mongodb.org/core/atlas-cli-
+configuration-file.  
+  
+## Output
+
+If the command succeeds, the CLI returns output similar to the following
+sample. Values in brackets represent your values.
+
+    
+    
+    Project '<ID>' created.  
+      
+  
+## Examples
+
+    
+    
+    # Create a project in the organization with the ID 5e2211c17a3e5a48f5497de3 using default alert settings:  
+      
+    atlas projects create --orgId 5e2211c17a3e5a48f5497de3 --output json  
+  
+What is MongoDB Atlas? →
+

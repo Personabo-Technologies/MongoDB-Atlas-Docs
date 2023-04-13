@@ -1,0 +1,211 @@
+Docs Home → Launch & Manage MongoDB → MongoDB Atlas
+
+# atlas networking peering create gcp
+
+Share Feedback
+
+On this page
+
+  * Syntax
+  * Options
+  * Inherited Options
+  * Output
+  * Examples
+
+Create a network peering connection between the Atlas VPC and your Google
+Cloud VPC.
+
+The network peering create command checks if a VPC exists in the region you
+specify for your Atlas project. If one exists, this command creates the
+peering connection between that VPC and your VPC. If an Atlas VPC doesn't
+exist, this command creates one and creates a connection between it and your
+VPC.
+
+To learn more about network peering connections, see
+https://www.mongodb.com/docs/atlas/security-vpc-peering/.
+
+To use this command, you must authenticate with a user account or an API key
+that has the Project Owner role.
+
+## Syntax
+
+    
+    
+    atlas networking peering create gcp [options]  
+      
+  
+## Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+\--atlasCidrBlock
+
+|
+
+string
+
+|
+
+true
+
+|
+
+CIDR block that Atlas uses for all network peering connections created in the
+project. Required only if you do not already have an Atlas VPC. To learn more,
+see the Atlas UI tab at https://www.mongodb.com/docs/atlas/security-vpc-
+peering/#in-configure-your-network-peering-connection.  
+  
+\--gcpProjectId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Unique identifier of the GCP project in which the network peer resides.  
+  
+-h, --help
+
+|
+
+|
+
+false
+
+|
+
+help for gcp  
+  
+\--network
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Unique identifier of the Network Peering connection in the Atlas project.  
+  
+-o, --output
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Output format. Valid values are json, json-path, go-template, or go-template-
+file.  
+  
+\--projectId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Hexadecimal string that identifies the project to use. This option overrides
+the settings in the configuration file or environment variable.  
+  
+\--region
+
+|
+
+strings
+
+|
+
+false
+
+|
+
+List of Atlas regions where the container resides.  
+  
+## Inherited Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+-P, --profile
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Human-readable label that identifies the profile to use from your
+configuration file. To learn about profiles for the Atlas CLI, see
+https://dochub.mongodb.org/core/atlas-cli-save-connection-settings. To learn
+about profiles for MongoCLI, see https://dochub.mongodb.org/core/atlas-cli-
+configuration-file.  
+  
+## Output
+
+If the command succeeds, the CLI returns output similar to the following
+sample. Values in brackets represent your values.
+
+    
+    
+    Network peering connection '<ID>' created.  
+      
+  
+## Examples
+
+    
+    
+    # Create a network peering connection between the Atlas VPC in CIDR block 192.168.0.0/24 and your GCP VPC with the GCP project ID grandiose-branch-256701 in the network named cli-test:  
+      
+    atlas networking peering create gcp --atlasCidrBlock 192.168.0.0/24 --gcpProjectId grandiose-branch-256701 --network cli-test --output json  
+  
+What is MongoDB Atlas? →
+

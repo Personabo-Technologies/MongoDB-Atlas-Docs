@@ -1,0 +1,145 @@
+Docs Home → Launch & Manage MongoDB → MongoDB Atlas
+
+# atlas organizations invitations list
+
+Share Feedback
+
+On this page
+
+  * Syntax
+  * Options
+  * Inherited Options
+  * Examples
+
+Return all pending invitations to your organization.
+
+To use this command, you must authenticate with a user account or an API key
+that has the Organization User Admin role.
+
+## Syntax
+
+    
+    
+    atlas organizations invitations list [options]  
+      
+  
+## Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+\--email
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Email address for the user.  
+  
+-h, --help
+
+|
+
+|
+
+false
+
+|
+
+help for list  
+  
+\--orgId
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Organization ID to use. Overrides the settings in the configuration file or
+environment variable.  
+  
+-o, --output
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Output format. Valid values are json, json-path, go-template, or go-template-
+file.  
+  
+## Inherited Options
+
+Name
+
+|
+
+Type
+
+|
+
+Required
+
+|
+
+Description  
+  
+|||  
+  
+-P, --profile
+
+|
+
+string
+
+|
+
+false
+
+|
+
+Human-readable label that identifies the profile to use from your
+configuration file. To learn about profiles for the Atlas CLI, see
+https://dochub.mongodb.org/core/atlas-cli-save-connection-settings. To learn
+about profiles for MongoCLI, see https://dochub.mongodb.org/core/atlas-cli-
+configuration-file.  
+  
+## Examples
+
+    
+    
+    # Return a JSON-formatted list of pending invitations to the organization with the ID 5f71e5255afec75a3d0f96dc:  
+      
+    atlas organizations invitations list --orgId 5f71e5255afec75a3d0f96dc --output json  
+  
+What is MongoDB Atlas? →
+
